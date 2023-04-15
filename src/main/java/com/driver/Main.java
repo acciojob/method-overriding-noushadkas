@@ -1,37 +1,27 @@
 package com.driver;
 
-class Parent {
-    void show()
-    {
-        System.out.println("Parent's show()");
-    }
-}
+public class Main {
 
-// Inherited class
-class Child extends Parent {
-    // This method overrides show() of Parent
-    @Override
-    void show()
-    {
-        System.out.println("Child's show()");
-    }
-}
+    public static class A {
 
-// Driver class
-class Main {
-    public static void main(String[] args)
-    {
-        // If a Parent type reference refers
-        // to a Parent object, then Parent's
-        // show is called
-        Parent obj1 = new Parent();
-        obj1.show();
-
-        // If a Parent type reference refers
-        // to a Child object Child's show()
-        // is called. This is called RUN TIME
-        // POLYMORPHISM.
-        Parent obj2 = new Child();
-        obj2.show();
+        public  String meth()
+        {
+            return "Invoking method from class A";
+        }
     }
+
+    public static class B extends A {
+        public  String meth()
+        {
+            return "Method is overridden in Extendend class B";
+        }
+    }
+    public static void main(String[] args) {
+        B obj = new B();
+        obj.meth();
+
+        B obj1 = new B();
+        obj1.meth();
+    }
+
 }
